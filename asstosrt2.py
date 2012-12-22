@@ -108,8 +108,9 @@ class Ass2Srt():
 
                 #若需要，忽略带过渡特效的字幕（如顶部滚动版权警告）
                 if deleffect and noeffect != -1:
-                    if self.__findpice(line, noeffect) != '':
-                        continue                    
+                    effect = self.__findpice(line, noeffect)
+                    if effect != '' and effect != '!Effect':
+                        continue
 
                 #读取 Start, End Text:
                 lstart = self.__findpice(line, nostart) #Start
