@@ -6,7 +6,7 @@
 #    <asstostr2 - Convert ASS to SRT >
 #    Copyright (C) <2011>  <XiErCh>
 
-#    http://ouno.tk/py-ass2srt/
+#    http://sorz.org/py-ass2srt/
 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
