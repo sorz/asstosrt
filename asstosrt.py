@@ -32,7 +32,7 @@ class SimpleTime(object):
 
 
     def __str__(self):  # SRT Format
-        return '{:02d}:{:02d}:{:02d}.{:03d}'.format(self.hour,
+        return '{:02d}:{:02d}:{:02d},{:03d}'.format(self.hour,
                 self.minute, self.second, self.microsecond)
     __unicode__ = __str__
 
