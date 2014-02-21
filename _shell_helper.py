@@ -116,18 +116,17 @@ def _convert_files(files, args):
             ignore += 1
             continue
         try:
-            in_file = open(in_path, 'rb')
-            if args.encoding is None:  # Detect file charset.
-                in_codec = codecs.lookup(_detect_charset(in_file))
-                if args.srt_encoding is None:
-                    out_codec = in_codec
+            with open(in_path, 'rb') as in_file:
+                if args.encoding is None:  # Detect file charset.
+                    in_codec = codecs.lookup(_detect_charset(in_file))
+                    if args.srt_encoding is None:
+                        out_codec = in_codec
 
-            out_str = asstosrt.convert(in_codec.streamreader(in_file),
-                    args.language, args.no_effact, args.only_first_line)
+                out_str = asstosrt.convert(in_codec.streamreader(in_file),
+                        args.language, args.no_effact, args.only_first_line)
 
-            out_file = open(out_path, 'wb')
-            out_file.write(out_codec.encode(out_str)[0])
-            out_file.close()
+            with open(out_path, 'wb') as out_file:
+                out_file.write(out_codec.encode(out_str)[0])
             done += 1
             print('[done]')
 
@@ -140,9 +139,6 @@ def _convert_files(files, args):
         except IOError as e:
             print('[fail] (IO error)')
             print(e, file=sys.stderr)
-        finally:
-            in_file.close()
-            out_file.close()
 
     print("All done:\n\t{} success, {} ignore, {} fail." \
             .format(done, ignore, sum - done - ignore))
