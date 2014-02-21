@@ -133,12 +133,15 @@ def _convert_files(files, args):
         except (UnicodeDecodeError, UnicodeEncodeError, LookupError) as e:
             print('[fail] (codec error)')
             print(e, file=sys.stderr)
+            fail += 1
         except ValueError as e:
             print('[fail] (irregular format)')
             print(e, file=sys.stderr)
+            fail += 1
         except IOError as e:
             print('[fail] (IO error)')
             print(e, file=sys.stderr)
+            fail += 1
 
     print("All done:\n\t{} success, {} ignore, {} fail." \
             .format(done, ignore, sum - done - ignore))
