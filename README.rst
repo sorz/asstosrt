@@ -70,8 +70,8 @@ You can use asstosrt on your program easily.
 
     import asstosrt
 	
-	ass_file = open('example.ass')
-	srt_str = asstosrt.convert(ass_file)
+    ass_file = open('example.ass')
+    srt_str = asstosrt.convert(ass_file)
 	
 
 License
