@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-from distutils.core import setup
+from setuptools import setup
 
 
 with open('README.rst') as readme:
@@ -13,9 +13,11 @@ setup(
     author_email='orz@sorz.org',
     url='https://github.com/bluen/asstosrt/',
     py_modules=['asstosrt', '_shell_helper'],
+    data_files=[('', ['README.rst'])],
+    install_requires=['setuptools'],
     entry_points="""
     [console_scripts]
-    asstosrt = asstosrt
+    asstosrt = _shell_helper:main
     """,
     classifiers=[
         'Development Status :: 3 - Alpha',
