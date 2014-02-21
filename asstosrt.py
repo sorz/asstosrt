@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import division
 import sys
 import re
 
@@ -26,7 +27,7 @@ class SimpleTime(object):
 
     def __sub__(self, other):
         return (self.hour - other.hour) * 3600 + \
-                (self.minute - other.hour * 60) + \
+                (self.minute - other.minute) * 60 + \
                 (self.second - other.second) + \
                 (self.microsecond - other.microsecond) / 1000
 
