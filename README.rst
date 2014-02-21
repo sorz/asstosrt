@@ -82,4 +82,4 @@ MIT License
 Bugs and Issues
 ---------------
 
-Please visit `GitHub <https://github.com/BlueN/asstosrt>`.
+Please visit `GitHub <https://github.com/BlueN/asstosrt>`__.
