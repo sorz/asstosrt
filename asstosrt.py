@@ -1,7 +1,10 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import sys
 import re
 
+
+if sys.version_info.major > 2:
+    unicode = str  # Compatible with Py3k.
 
 _REG_CMD = re.compile(r'{.*?}')
 

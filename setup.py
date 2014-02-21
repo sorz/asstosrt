@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 from setuptools import setup
 
 
@@ -25,6 +25,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Text Processing',
     ],
     long_description=long_description
