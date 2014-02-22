@@ -68,6 +68,8 @@ def _detect_charset(file):
     elif c['confidence'] < 0.6:
         print('Warning: uncertain file encoding, ' + \
                 'suggest specify one by -e.', file=sys.stderr)
+    if c['encoding'] == 'GB2312':
+        return 'GB18030'
     return c['encoding']
 
 
