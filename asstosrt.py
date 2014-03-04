@@ -13,11 +13,13 @@ class SimpleTime(object):
     def __init__(self, string):
         """The string is like '19:89:06.04'."""
         h, m, s = string.split(':', 2)
+        s, ms = s.split('.')
         self.hour = int(h)
         self.minute = int(m)
-        s = float(s)
         self.second = int(s)
-        self.microsecond = int(s % 1 * 1000)
+        self.microsecond = int(ms)
+        if (self.microsecond < 0):
+            self.microsecond = 0
 
 
     def sort_key(self):
