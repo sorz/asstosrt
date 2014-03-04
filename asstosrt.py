@@ -150,6 +150,5 @@ def convert(file, translate=None, no_effect=False, only_first_line=False):
 
 
 if __name__ == '__main__':
-    sys.path.append('atslibs.zip')
     from _shell_helper import main
     main()
