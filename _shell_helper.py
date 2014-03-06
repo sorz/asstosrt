@@ -73,6 +73,23 @@ def _detect_charset(file):
     return c['encoding']
 
 
+CODECS_BOM = {
+    'utf-16': codecs.BOM_UTF16,
+    'utf-16-le': codecs.BOM_UTF16_LE,
+    'utf-16-be': codecs.BOM_UTF16_BE,
+    'utf-32': codecs.BOM_UTF16,
+    'utf-32-le': codecs.BOM_UTF32_LE,
+    'utf-32-be': codecs.BOM_UTF32_BE,
+}
+
+def get_bom(codec):
+    """Return the BOM of UTF-16/32 or empty str."""
+    if codec.name in CODECS_BOM:
+        return CODECS_BOM[codec.name]
+    else:
+        return b''
+
+
 def _files_on_cwd():
     """Return all ASS/SSA file on current working directory. """
     files = []
@@ -128,6 +145,7 @@ def _convert_files(files, args):
                         args.language, args.no_effact, args.only_first_line)
 
             with open(out_path, 'wb') as out_file:
+                out_file.write(get_bom(out_codec))
                 out_file.write(out_codec.encode(out_str)[0])
             done += 1
             print('[done]')
