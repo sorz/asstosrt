@@ -12,12 +12,13 @@ setup(
     author='XiErCh',
     author_email='orz@sorz.org',
     url='https://github.com/bluen/asstosrt/',
-    py_modules=['asstosrt', '_shell_helper'],
+    py_modules=['batch'],
+    packages=['asstosrt'],
     data_files=[('', ['README.rst'])],
     install_requires=['setuptools'],
     entry_points="""
     [console_scripts]
-    asstosrt = _shell_helper:main
+    asstosrt = batch:main
     """,
     classifiers=[
         'Development Status :: 3 - Alpha',

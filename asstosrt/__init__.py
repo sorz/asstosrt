@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from __future__ import division
 import sys
 import re
@@ -147,8 +146,3 @@ def convert(file, translate=None, no_effect=False, only_first_line=False):
         i += 1
         srt += u'{}\r\n{}\r\n'.format(i, unicode(dialogue))
     return srt
-
-
-if __name__ == '__main__':
-    from _shell_helper import main
-    main()

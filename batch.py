@@ -184,3 +184,7 @@ def main():
         sys.exit(1)
 
     _convert_files(files, args)
+
+
+if __name__ == '__main__':
+    main()
