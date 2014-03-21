@@ -5,7 +5,7 @@ import sys
 import os
 
 import asstosrt
-from asstosrt.translate import LangconvTranslator
+from asstosrt import translate
 
 
 def _get_args():
@@ -19,6 +19,9 @@ def _get_args():
     parser.add_argument('-t', '--translate-to', dest='language',
             help='set "zh-hans" for Simplified Chinese, \
                 "zh-hant" for Traditional Chinese (need langconv)')
+    parser.add_argument('-c', '--opencc', dest='opencc_config',
+            help="Use OpenCC to convert Simplified/Traditional Chinese, "
+                "(need pyopencc/opencc-python)'")
     parser.add_argument('-n', '--no-effact', action="store_true",
             help='ignore all effact text')
     parser.add_argument('-l', '--only-first-line', action="store_true",
@@ -164,7 +167,9 @@ def main():
 
     try:
         if args.language is not None:
-            args.translator = LangconvTranslator(args.language)
+            args.translator = translate.LangconvTranslator(args.language)
+        elif args.opencc_config is not None:
+            args.translator = translate.OpenCCTranslator(args.opencc_config)
         else:
             args.translator = None
     except ImportError as e:
