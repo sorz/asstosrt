@@ -47,7 +47,20 @@ Specify input and output encoding, output directory:
     $ asstosrt -e utf-8 -s utf-18be -o /to/some/path/
 
 
-Convert to Simplified Chinese (need ``langconv``):
+Convert to Simplified Chinese (Using ``langconv``
+`download <https://code.google.com/p/pyswim/downloads/detail?name=langconv-0.0.1dev.tgz>`__):
+
+::
+
+    $ asstosrt -t zh-hans -s gb18030 /path/to/some.big5.ass
+
+
+Convert to Traditional Chinese (Using OpenCC):
+
+::
+
+	# pip install pyopencc
+	$ asstosrt -c zhs2zht.ini 
 
 ::
 
