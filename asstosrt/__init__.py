@@ -84,12 +84,12 @@ def _preprocess_line(line):
         return line
 
 
-def convert(file, translate=None, no_effect=False, only_first_line=False):
+def convert(file, translator=None, no_effect=False, only_first_line=False):
     """Convert a ASS subtitles to SRT format and return the content of SRT.
     
     Arguments:
     file            -- a file-like object which shoud handle decoding;
-    translate       -- 'zh-hans' or 'zh-hant', see langconv for detail;
+    translator      -- a instance of LangconvTranslator or OpenCCTranslator;
     no_effect       -- delete all effect dialogues;
     only_first_line -- only keep the first line of each dialogue.
 
@@ -108,12 +108,6 @@ def convert(file, translate=None, no_effect=False, only_first_line=False):
             break
     if formater is None:
         raise ValueError("Can't find Events tag or Foramt line in this file.")
-
-    if translate is not None:
-        import langconv
-        translator = langconv.Converter(translate)
-    else:
-        translator = None
 
     # Iterate and convert all Dialogue lines:
     srt_dialogues = []

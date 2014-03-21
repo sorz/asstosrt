@@ -5,6 +5,7 @@ import sys
 import os
 
 import asstosrt
+from asstosrt.translate import LangconvTranslator
 
 
 def _get_args():
@@ -42,17 +43,6 @@ def _check_chardet():
         print('Error: module "chardet" not found.\nPlease install it ' + \
                 '(pip install chardet) or specify a encoding (-e utf-8).',
                 file=sys.stderr)
-        sys.exit(1)
-
-
-def _check_langconv():
-    """Import langconv or exit."""
-    global langconv
-    try:
-        import langconv
-    except ImportError:
-        print('Error: module "langconv" not found.\n' + \
-                'Please download it or disable translation.')
         sys.exit(1)
 
 
@@ -142,7 +132,7 @@ def _convert_files(files, args):
                         out_codec = in_codec
 
                 out_str = asstosrt.convert(in_codec.streamreader(in_file),
-                        args.language, args.no_effact, args.only_first_line)
+                        args.translator, args.no_effact, args.only_first_line)
 
             with open(out_path, 'wb') as out_file:
                 out_file.write(get_bom(out_codec))
@@ -172,9 +162,17 @@ def main():
     if args.encoding is None:  # Enable auto detect
         _check_chardet()
 
-    if args.language is not None:
-        _check_langconv()
-    
+    try:
+        if args.language is not None:
+            args.translator = LangconvTranslator(args.language)
+        else:
+            args.translator = None
+    except ImportError as e:
+        print("Error: {}\nPlease install it or disable "
+                "translation.".format(e.message))
+        sys.exit(1)
+        
+
     files = args.files
     if not files:
         files = _files_on_cwd()
