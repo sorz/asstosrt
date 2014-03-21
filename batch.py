@@ -12,7 +12,7 @@ def _get_args():
     parser = argparse.ArgumentParser(description='A useful tool that \
                 convert Advanced SubStation Alpha (ASS/SSA) subtitle files \
                 to SubRip (SRT) subtitle files.',
-            epilog='Auther: @xierch <sorz@sorz.org>; \
+            epilog='Auther: @xierch <orz@sorz.org>; \
                 bug report: https://github.com/bluen/asstosrt')
     parser.add_argument('-e', '--encoding', 
             help='charset of input ASS file (default: auto detect)')
