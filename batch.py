@@ -20,8 +20,8 @@ def _get_args():
             help='set "zh-hans" for Simplified Chinese, \
                 "zh-hant" for Traditional Chinese (need langconv)')
     parser.add_argument('-c', '--opencc', dest='opencc_config',
-            help="Use OpenCC to convert Simplified/Traditional Chinese, "
-                "(need pyopencc/opencc-python)'")
+            help="Use OpenCC to convert Simplified/Traditional Chinese "
+                "(need pyopencc)'")
     parser.add_argument('-n', '--no-effact', action="store_true",
             help='ignore all effact text')
     parser.add_argument('-l', '--only-first-line', action="store_true",
