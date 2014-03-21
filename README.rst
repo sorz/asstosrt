@@ -62,10 +62,6 @@ Convert to Traditional Chinese (Using OpenCC):
 	# pip install pyopencc
 	$ asstosrt -c zhs2zht.ini 
 
-::
-
-    $ asstosrt -t zh-hans /path/to/some.big5.ass
-
 
 Only keep first line for each dialogue and delete all effects:
 
