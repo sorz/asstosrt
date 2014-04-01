@@ -115,7 +115,7 @@ def convert(file, translator=None, no_effect=False, only_first_line=False):
         line = _preprocess_line(line)
         if line.startswith('['):
             break  # Events ended.
-        elif not line:
+        elif not line.startswith('Dialogue:'):
             continue
 
         dialogue = formater.format(line)
