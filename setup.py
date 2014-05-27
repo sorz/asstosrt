@@ -7,7 +7,7 @@ with open('README.rst') as readme:
 
 setup(
     name='asstosrt',
-    version='0.1.3',
+    version='0.1.4',
     description='A tool that convert ASS/SSA subtitle to SRT format',
     author='XiErCh',
     author_email='orz@sorz.org',
@@ -21,7 +21,7 @@ setup(
     asstosrt = batch:main
     """,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2',
