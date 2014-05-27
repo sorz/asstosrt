@@ -91,4 +91,4 @@ MIT License
 Bugs and Issues
 ---------------
 
-Please visit `GitHub <https://github.com/BlueN/asstosrt>`__.
+Please visit `GitHub <https://github.com/sorz/asstosrt>`__.
