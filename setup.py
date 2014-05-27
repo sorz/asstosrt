@@ -11,7 +11,7 @@ setup(
     description='A tool that convert ASS/SSA subtitle to SRT format',
     author='XiErCh',
     author_email='orz@sorz.org',
-    url='https://github.com/bluen/asstosrt/',
+    url='https://github.com/sorz/asstosrt/',
     py_modules=['batch'],
     packages=['asstosrt'],
     data_files=[('', ['README.rst'])],
