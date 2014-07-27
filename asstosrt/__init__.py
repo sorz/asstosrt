@@ -117,6 +117,8 @@ def convert(file, translator=None, no_effect=False, only_first_line=False):
             break  # Events ended.
         elif not line.startswith('Dialogue:'):
             continue
+        elif line.endswith('}'):
+            continue
 
         dialogue = formater.format(line)
         if dialogue['end'] - dialogue['start'] < 0.2:
