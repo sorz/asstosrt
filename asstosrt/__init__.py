@@ -78,7 +78,7 @@ class StrDialogue(object):
 def _preprocess_line(line):
     """Remove line endings and comments."""
     line = line.strip()
-    if line.startswith(';'):
+    if line.startswith(';') | line.endswith('{\p0}'):
         return ''
     else:
         return line
@@ -116,8 +116,6 @@ def convert(file, translator=None, no_effect=False, only_first_line=False):
         if line.startswith('['):
             break  # Events ended.
         elif not line.startswith('Dialogue:'):
-            continue
-        elif line.endswith('}'):
             continue
 
         dialogue = formater.format(line)
