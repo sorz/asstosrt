@@ -78,7 +78,7 @@ class StrDialogue(object):
 def _preprocess_line(line):
     """Remove line endings and comments."""
     line = line.strip()
-    if line.startswith(';'):
+    if line.startswith(';') | line.endswith('{\p0}'):
         return ''
     else:
         return line
