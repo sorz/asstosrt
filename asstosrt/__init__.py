@@ -78,7 +78,7 @@ class StrDialogue(object):
 def _preprocess_line(line):
     """Remove line endings and comments."""
     line = line.strip()
-    if line.startswith(';') | line.endswith('{\p0}'):
+    if line.startswith(';'):
         return ''
     else:
         return line
@@ -124,6 +124,8 @@ def convert(file, translator=None, no_effect=False, only_first_line=False):
         if no_effect:
             if dialogue.get('effect', ''):
                 continue
+        if dialogue['text'].endswith('{\p0}'):  # TODO: Exact match drawing commands.
+            continue
 
         text = ''.join(_REG_CMD.split(dialogue['text']))  # Remove commands.
         text = text.replace(r'\N', '\r\n').replace(r'\n', '\r\n')
