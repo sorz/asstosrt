@@ -7,7 +7,7 @@ with open('README.rst') as readme:
 
 setup(
     name='asstosrt',
-    version='0.1.5',
+    version='0.1.6',
     description='A tool that convert ASS/SSA subtitle to SRT format',
     author='XiErCh',
     author_email='orz@sorz.org',
