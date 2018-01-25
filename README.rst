@@ -47,8 +47,8 @@ Specify input and output encoding, output directory:
     $ asstosrt -e utf-8 -s utf-18be -o /to/some/path/
 
 
-Convert to Simplified Chinese (Using ``langconv``
-`download <https://code.google.com/p/pyswim/downloads/detail?name=langconv-0.0.1dev.tgz>`__):
+Convert to Simplified Chinese (Using `langconv.py <https://github.com/skydark/nstools/blob/master/zhtools/langconv.py>`__ & 
+`zh_wiki.py <https://github.com/skydark/nstools/blob/master/zhtools/zh_wiki.py>`__):
 
 ::
 
