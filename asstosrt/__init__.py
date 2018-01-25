@@ -44,10 +44,6 @@ class AssDialogueFormater(object):
     def __init__(self, format_line):
         colums = format_line[7:].split(',')
         self._columns_names = [c.strip().lower() for c in colums]
-    
-    
-    def _strptime(self, text):
-        return datetime.time.strftime('')
 
 
     def format(self, dialogue_line):
